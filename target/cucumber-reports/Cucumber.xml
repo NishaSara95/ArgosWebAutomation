@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="33.497">
+    <testcase classname="Shopping at Argos" name="Verify Search page returns item user searched for and product added to trolley" time="33.306">
+        <system-out><![CDATA[Given User navigates to Argos website.......................................passed
+When User searches for a product "Washing Machine"..........................passed
+Then User verifies the search result page contains "Washing Machine"........passed
+And User adds the product to the trolley....................................passed
+Then User validates the product is in the trolley...........................passed
+And User increase the quantity by "2".......................................passed
+Then User validate the subtotal with unit price and "2".....................passed
+]]></system-out>
+    </testcase>
+</testsuite>
