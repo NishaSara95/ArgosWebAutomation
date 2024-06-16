@@ -16,9 +16,11 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 
-@Log4j2
+
 public class ArgosShoppingStepDefinition {
 
 	private Scenario scenario;
@@ -29,7 +31,8 @@ public class ArgosShoppingStepDefinition {
 	private ProductPage productPage;
 	private TrolleyPage trolleyPage;
 	String productTitle;
-
+	protected static Logger log = LoggerFactory.getLogger(ArgosShoppingStepDefinition.class);
+	
 	@Before
 	public void setUp(Scenario scenario) {
 		driver = WebDriverManager.getDriver();
@@ -69,10 +72,10 @@ public class ArgosShoppingStepDefinition {
 
 	}
 
-	@Then("User adds the product to the trolley")
-	public void user_adds_the_product_to_the_trolley() {
-
-		searchPage.selectRandomProduct();
+	@And("User adds the product to the trolley {string}")
+	public void user_adds_the_product_to_the_trolley(String productname) {
+		
+		searchPage.selectSpecificProduct(productname);	
 		productTitle = productPage.getProductTitle();
 		productPage.clickAddToTrolley();
 		productPage.closeAddTrolleyDialogBox();
@@ -82,8 +85,7 @@ public class ArgosShoppingStepDefinition {
 	@Then("User validates the product is in the trolley")
 	public void user_validates_the_product_is_in_the_trolley() {
 		productPage.clickTrolleyButton();
-		Assert.assertEquals(trolleyPage.getProductNameFromTrolley(), productTitle);
-		
+		Assert.assertEquals(trolleyPage.getProductNameFromTrolley(), productTitle);		
 		
 	}
 	

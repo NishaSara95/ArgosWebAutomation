@@ -1,12 +1,16 @@
 package com.bdd.utilities;
 
-import lombok.extern.log4j.Log4j2;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -17,14 +21,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Log4j2
+
 public class ElementHelper {
 	private WebDriver driver;
 	private WebDriverWait wait;
-
+	protected static Logger log = LoggerFactory.getLogger(ElementHelper.class);
+	
 	public ElementHelper(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(this.driver, 60);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(50)); 
+
 	}
 
 	/** Find a clickable element using XPath
@@ -313,7 +319,8 @@ public class ElementHelper {
 	 * 
 	 */
 	public void waitForPageToLoad() {
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		//WebDriverWait wait = new WebDriverWait(driver, 50);
 		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
 			@Override
 			public Boolean apply(WebDriver driver) {

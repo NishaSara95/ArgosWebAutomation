@@ -61,7 +61,8 @@ public class WebDriverManager {
 		chromeOptions.addArguments("--no-default-browser-check");
 		chromeOptions.addArguments("--incognito");
 
-		io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+		//io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+	
 		return new ChromeDriver(chromeOptions);
 	}
 
@@ -71,7 +72,7 @@ public class WebDriverManager {
 		EdgeOptions edgeOptions = new EdgeOptions();
 		edgeOptions.setCapability("acceptInsecureCerts", true);
 
-		io.github.bonigarcia.wdm.WebDriverManager.edgedriver().setup();
+		//io.github.bonigarcia.wdm.WebDriverManager.edgedriver().setup();
 		return new EdgeDriver(edgeOptions);
 	}
 
@@ -83,8 +84,9 @@ public class WebDriverManager {
 		driver.manage().window().maximize();
 		WebElement cookieAccept = driver.findElement(By.id("explicit-consent-prompt-accept"));
 
-		WebDriverWait wait = new WebDriverWait(driver, 50);
-
+		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		//WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 		wait.until(ExpectedConditions.visibilityOf(cookieAccept));
 
 		wait.until(ExpectedConditions.elementToBeClickable(cookieAccept));

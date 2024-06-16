@@ -13,7 +13,7 @@
   <url>http://www.example.com</url>
 
   <properties>
-        <selenium.java.version>4.14.1</selenium.java.version>
+        <selenium.java.version>4.21.0</selenium.java.version>
         <cucumber.version>7.3.4</cucumber.version>
         <cucumber.testng.version>7.3.4</cucumber.testng.version>
         <lombok>1.18.30</lombok>
@@ -61,26 +61,12 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.testng.version}</version>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.seleniumhq.selenium</groupId>-->
-        <!--            <artifactId>selenium-java</artifactId>-->
-        <!--            <version>${selenium.java.version}</version>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.seleniumhq.selenium</groupId>-->
-        <!--            <artifactId>selenium-api</artifactId>-->
-        <!--            <version>${selenium.java.version}</version>-->
-        <!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
-            <version>3.141.59</version>
-        </dependency>
+   
+      
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.5.3</version>
+            <version>5.8.0</version>
         </dependency>
         <dependency>
             <groupId>net.minidev</groupId>
@@ -88,7 +74,11 @@
             <version>2.4.10</version>
             <scope>compile</scope>
         </dependency>
-
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>${selenium.java.version}</version>
+</dependency>
     
     </dependencies>
 

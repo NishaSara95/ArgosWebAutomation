@@ -8,16 +8,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.bdd.utilities.ElementHelper;
 
 import lombok.extern.log4j.Log4j2;
 
-@Log4j2
+
 public class SearchResultPage {
 
 	private WebDriver driver;
 	private ElementHelper elementHelper;
+	protected static Logger log = LoggerFactory.getLogger(SearchResultPage.class);
 
 	@FindBy(id = "searchTerm")
 	private WebElement searchBox;
@@ -79,6 +82,8 @@ public class SearchResultPage {
 		log.info("Search results contain only the specified product category");
 		return true;
 	}
+	
+	
 
 	/**
 	 * Method to click on a random product from Product list
@@ -95,5 +100,23 @@ public class SearchResultPage {
 		elementHelper.waitForPageToLoad();
 		log.info("Product is selected from the search page");
 	}
-
+	
+	/** 
+	 * Select a specific product from the list 
+	 * 
+	 * @param product
+	 */
+	 
+	
+	public void selectSpecificProduct(String product) {
+		elementHelper.waitForElementsVisible(productCards);
+		for (WebElement prod : productCards) {
+			if (prod.getText().toLowerCase().contains(product)) {
+				prod.click();
+				log.info("Product selected from search page is :  " +product);				
+				break;
+			}
+		}
+		
+	}
 }

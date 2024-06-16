@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="22.043">
-    <testcase classname="Shopping at Argos" name="Verify Search page returns item user searched for and product added to trolley" time="21.811">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="39.031">
+    <testcase classname="Shopping at Argos" name="Verify Search page returns item user searched for and product added to trolley" time="38.497">
         <system-out><![CDATA[Given User navigates to Argos website.......................................passed
 When User searches for a product "Washing Machine"..........................passed
 Then User verifies the search result page contains "Washing Machine"........passed
-And User adds the product to the trolley....................................passed
+And User adds the product to the trolley "samsung"..........................passed
 Then User validates the product is in the trolley...........................passed
 And User increase the quantity by "2".......................................passed
 Then User validate the subtotal with unit price and "2".....................passed
